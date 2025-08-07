@@ -1,0 +1,12 @@
+Ramin Yazdani | Protein Model Comparison | main | feat(init): Set up repository structure
+
+Set up the initial repository structure for the protein structure prediction comparison project.
+
+Added:
+- README.md with initial project overview
+- .gitignore for Python and project-specific files
+- requirements.txt with basic dependencies
+
+This establishes the foundation for a structural bioinformatics project comparing MODELLER, AlphaFold2, and RoseTTAFold predictions.
+
+Verified: Files created and repository initialized successfully.
