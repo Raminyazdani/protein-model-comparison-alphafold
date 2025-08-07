@@ -1,12 +1,10 @@
-Ramin Yazdani | Protein Model Comparison | main | feat(init): Set up repository structure
+Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add 2R9R protein sequence file
 
-Set up the initial repository structure for the protein structure prediction comparison project.
+Add the target protein sequence file for 2R9R (chain B) from RCSB PDB.
 
 Added:
-- README.md with initial project overview
-- .gitignore for Python and project-specific files
-- requirements.txt with basic dependencies
+- 2R9R.fasta - FASTA format sequence file
 
-This establishes the foundation for a structural bioinformatics project comparing MODELLER, AlphaFold2, and RoseTTAFold predictions.
+This is the first step in data collection, providing the primary input sequence for comparative modeling. The sequence will be used to generate structure predictions using MODELLER.
 
-Verified: Files created and repository initialized successfully.
+Verified: FASTA file format is valid and contains chain B sequence.
