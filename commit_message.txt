@@ -1,10 +1,10 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add 2R9R protein sequence file
+Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add 2R9R experimental reference structure
 
-Add the target protein sequence file for 2R9R (chain B) from RCSB PDB.
+Add the experimental reference structure for protein 2R9R from RCSB PDB.
 
 Added:
-- 2R9R.fasta - FASTA format sequence file
+- 2R9R.pdb - Experimental structure from X-ray crystallography
 
-This is the first step in data collection, providing the primary input sequence for comparative modeling. The sequence will be used to generate structure predictions using MODELLER.
+This structure will serve as the ground truth for benchmarking predicted structures. All model quality metrics (RMSD, TM-score) will be calculated against this reference.
 
-Verified: FASTA file format is valid and contains chain B sequence.
+Verified: PDB file is complete and contains valid atomic coordinates.
