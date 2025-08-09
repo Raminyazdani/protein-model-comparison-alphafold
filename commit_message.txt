@@ -1,10 +1,10 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add 2R9R experimental reference structure
+Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add AlphaFold2 prediction for comparison
 
-Add the experimental reference structure for protein 2R9R from RCSB PDB.
+Add AlphaFold2 predicted structure for protein 2R9R.
 
 Added:
-- 2R9R.pdb - Experimental structure from X-ray crystallography
+- 2R9R_alphafold2.pdb - Structure predicted by AlphaFold2
 
-This structure will serve as the ground truth for benchmarking predicted structures. All model quality metrics (RMSD, TM-score) will be calculated against this reference.
+This provides the first deep learning baseline for comparison. AlphaFold2 represents state-of-the-art protein structure prediction using deep learning.
 
-Verified: PDB file is complete and contains valid atomic coordinates.
+Verified: PDB file format is valid and contains predicted structure.
