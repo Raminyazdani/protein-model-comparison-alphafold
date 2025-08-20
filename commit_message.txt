@@ -1,10 +1,11 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add MODELLER prediction baseline
+Ramin Yazdani | Protein Model Comparison | main | feat(fix): Fix typo: rename to 2R9R_modeller.pdb
 
-Add MODELLER predicted structure for protein 2R9R.
+Fix filename typo in MODELLER prediction file.
 
-Added:
-- 2R9R_modeler.pdb (NOTE: Contains typo - single 'l' instead of double 'l')
+Changed:
+- Removed: 2R9R_modeler.pdb (incorrect spelling)
+- Added: 2R9R_modeller.pdb (correct spelling with double 'l')
 
-This completes the initial set of prediction files needed for comparison. However, there's a typo in the filename that will need to be corrected.
+The filename now correctly matches the MODELLER software name convention. This ensures consistency across all prediction files.
 
-Issue: Filename should be 2R9R_modeller.pdb to match MODELLER software spelling.
+Verified: All prediction baseline files now have correct naming.
