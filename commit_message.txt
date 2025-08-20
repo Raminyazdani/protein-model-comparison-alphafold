@@ -1,10 +1,10 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add RoseTTAFold prediction for comparison
+Ramin Yazdani | Protein Model Comparison | main | WIP(data): Add MODELLER prediction baseline
 
-Add RoseTTAFold predicted structure for protein 2R9R.
+Add MODELLER predicted structure for protein 2R9R.
 
 Added:
-- 2R9R_rosettafold.pdb - Structure predicted by RoseTTAFold
+- 2R9R_modeler.pdb (NOTE: Contains typo - single 'l' instead of double 'l')
 
-This completes the comparison set with a second deep learning method. RoseTTAFold provides an alternative deep learning approach to structure prediction.
+This completes the initial set of prediction files needed for comparison. However, there's a typo in the filename that will need to be corrected.
 
-Verified: PDB file format is valid and contains predicted structure.
+Issue: Filename should be 2R9R_modeller.pdb to match MODELLER software spelling.
