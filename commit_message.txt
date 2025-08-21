@@ -1,10 +1,12 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(core): Set up basic MODELLER script structure
+Ramin Yazdani | Protein Model Comparison | main | WIP(core): Implement automatic template downloading
 
-Set up the basic structure for the MODELLER comparative modeling script.
+Implement automatic downloading of template structures from RCSB PDB.
 
 Added:
-- model_comparison.py with necessary imports from MODELLER, BioPython, and requests
+- Template download code for 3LUT.pdb and 8VC3.pdb
+- Also downloads 2R9R.fasta if not present
+- Checks for existing files to avoid redundant downloads
 
-This establishes the skeleton for the MODELLER workflow implementation. The script will automate template-based comparative modeling.
+This ensures reproducibility by automatically fetching required template structures. Templates 3LUT and 8VC3 will be used for comparative modeling.
 
-Verified: Imports are syntactically correct and follow MODELLER API patterns.
+Verified: Download URLs are correct and files can be retrieved successfully.
