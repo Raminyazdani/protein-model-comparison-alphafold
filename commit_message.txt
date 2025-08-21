@@ -1,11 +1,10 @@
-Ramin Yazdani | Protein Model Comparison | main | feat(fix): Fix typo: rename to 2R9R_modeller.pdb
+Ramin Yazdani | Protein Model Comparison | main | WIP(core): Set up basic MODELLER script structure
 
-Fix filename typo in MODELLER prediction file.
+Set up the basic structure for the MODELLER comparative modeling script.
 
-Changed:
-- Removed: 2R9R_modeler.pdb (incorrect spelling)
-- Added: 2R9R_modeller.pdb (correct spelling with double 'l')
+Added:
+- model_comparison.py with necessary imports from MODELLER, BioPython, and requests
 
-The filename now correctly matches the MODELLER software name convention. This ensures consistency across all prediction files.
+This establishes the skeleton for the MODELLER workflow implementation. The script will automate template-based comparative modeling.
 
-Verified: All prediction baseline files now have correct naming.
+Verified: Imports are syntactically correct and follow MODELLER API patterns.
