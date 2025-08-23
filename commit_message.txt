@@ -1,12 +1,13 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(core): Implement automatic template downloading
+Ramin Yazdani | Protein Model Comparison | main | WIP(core): Implement sequence extraction and alignment
 
-Implement automatic downloading of template structures from RCSB PDB.
+Implement sequence extraction from FASTA and multiple template alignment.
 
 Added:
-- Template download code for 3LUT.pdb and 8VC3.pdb
-- Also downloads 2R9R.fasta if not present
-- Checks for existing files to avoid redundant downloads
+- Chain B extraction from 2R9R.fasta
+- PIR format conversion
+- Multiple template alignment setup
+- Updated requirements.txt with MODELLER installation notes
 
-This ensures reproducibility by automatically fetching required template structures. Templates 3LUT and 8VC3 will be used for comparative modeling.
+This implements the core alignment workflow needed for comparative modeling. The alignment between target and templates guides structure prediction.
 
-Verified: Download URLs are correct and files can be retrieved successfully.
+Verified: Sequence extraction logic is correct and alignment setup follows MODELLER best practices.
