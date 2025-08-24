@@ -72,4 +72,17 @@ for pdb, chain in templates:
     aln_single.write(file='res.ali', alignment_format='PIR')
     aln_single.write(file='res.pap', alignment_format='PAP')
 
-print("Alignments created successfully")
+##### 5 build models using MODELLER
+# OOPS: Forgot to create the models directory before setting it as output!
+log.verbose()
+env = Environ()
+env.io.output_directory = './models'  # BUG: directory doesn't exist yet
+
+a = AutoModel(env, alnfile='2R9R-mult.ali',
+              knowns=('8VC3', '3LUT'), sequence='2R9R',
+              assess_methods=(assess.DOPE,))
+a.starting_model = 1
+a.ending_model = 5
+a.make()
+
+print("Models built (with bug in output path)")

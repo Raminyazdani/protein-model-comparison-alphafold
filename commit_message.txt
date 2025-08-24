@@ -1,13 +1,13 @@
-Ramin Yazdani | Protein Model Comparison | main | WIP(core): Implement sequence extraction and alignment
+Ramin Yazdani | Protein Model Comparison | main | WIP(core): Implement MODELLER model generation
 
-Implement sequence extraction from FASTA and multiple template alignment.
+Implement the MODELLER AutoModel workflow for structure prediction.
 
 Added:
-- Chain B extraction from 2R9R.fasta
-- PIR format conversion
-- Multiple template alignment setup
-- Updated requirements.txt with MODELLER installation notes
+- Model generation using AutoModel class
+- Configuration to generate 5 models
+- DOPE score evaluation
+- Set output directory to './models'
 
-This implements the core alignment workflow needed for comparative modeling. The alignment between target and templates guides structure prediction.
+Issue: The script sets the output directory but doesn't create it first. This will cause a runtime error when MODELLER tries to write output files.
 
-Verified: Sequence extraction logic is correct and alignment setup follows MODELLER best practices.
+Next: Need to add directory creation before model generation.
