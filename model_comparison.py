@@ -73,10 +73,15 @@ for pdb, chain in templates:
     aln_single.write(file='res.pap', alignment_format='PAP')
 
 ##### 5 build models using MODELLER
-# OOPS: Forgot to create the models directory before setting it as output!
+# FIXED: Create the models directory before using it
+models_dir = Path("./models")
+if models_dir.exists():
+    print("models directory already exists")
+else:
+    models_dir.mkdir(parents=True)
 log.verbose()
 env = Environ()
-env.io.output_directory = './models'  # BUG: directory doesn't exist yet
+env.io.output_directory = str(models_dir)
 
 a = AutoModel(env, alnfile='2R9R-mult.ali',
               knowns=('8VC3', '3LUT'), sequence='2R9R',
@@ -85,4 +90,4 @@ a.starting_model = 1
 a.ending_model = 5
 a.make()
 
-print("Models built (with bug in output path)")
+print("Models built successfully")
