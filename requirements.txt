@@ -7,3 +7,4 @@ requests>=2.25.0
 # Visit: https://salilab.org/modeller/
 # MODELLER is freely available for academic use with registration
 # After installation, obtain a license key and configure it
+

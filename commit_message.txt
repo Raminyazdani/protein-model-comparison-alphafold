@@ -1,12 +1,21 @@
-Ramin Yazdani | Protein Model Comparison | main | feat(quality): Ensure all path operations use pathlib
+Ramin Yazdani | Protein Model Comparison | main | feat(docs): Enhance README with comprehensive documentation
 
-Final verification that all path operations consistently use pathlib.
+Create comprehensive, portfolio-grade documentation for the project.
 
-Verified:
-- All directory creation uses Path.mkdir()
-- All path operations are cross-platform safe
-- No hardcoded path separators remain
+Changed:
+- README.md: Complete rewrite with professional structure
+  - Overview and problem statement
+  - Tech stack and prerequisites
+  - Setup instructions with MODELLER installation guidance
+  - How to run the workflow
+  - Data inputs and outputs description
+  - Reproducibility notes and troubleshooting
+- requirements.txt: Enhanced MODELLER documentation
 
-This completes the path handling improvements, ensuring the script will work correctly on Windows, Linux, and macOS.
+Removed:
+- All assignment/university references
+- Academic naming conventions
 
-Verified: All path operations use pathlib for maximum compatibility.
+This makes the project accessible to external users and presents it as a professional portfolio piece.
+
+Verified: Documentation is complete, accurate, and follows professional standards.
