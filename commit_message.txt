@@ -1,21 +1,11 @@
-Ramin Yazdani | Protein Model Comparison | main | feat(docs): Enhance README with comprehensive documentation
+Ramin Yazdani | Protein Model Comparison | main | WIP(portfolio): Add project identity and process documentation
 
-Create comprehensive, portfolio-grade documentation for the project.
+Add project identity documentation for portfolio presentation.
 
-Changed:
-- README.md: Complete rewrite with professional structure
-  - Overview and problem statement
-  - Tech stack and prerequisites
-  - Setup instructions with MODELLER installation guidance
-  - How to run the workflow
-  - Data inputs and outputs description
-  - Reproducibility notes and troubleshooting
-- requirements.txt: Enhanced MODELLER documentation
+Added:
+- project_identity.md: Professional project description, stack, and keywords
+- report.md: Initial portfolio preparation documentation
 
-Removed:
-- All assignment/university references
-- Academic naming conventions
+This establishes the project's professional identity with clear descriptions of the problem, approach, and technical stack.
 
-This makes the project accessible to external users and presents it as a professional portfolio piece.
-
-Verified: Documentation is complete, accurate, and follows professional standards.
+Verified: Identity documents align with README and present project professionally.
