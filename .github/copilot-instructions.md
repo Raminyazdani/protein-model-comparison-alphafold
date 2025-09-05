@@ -1,8 +1,9 @@
-# Copilot Instructions — Portfolio-ready + Step-Expanded Git Historian (Single Project Repo)
+# Copilot Instructions — Portfolio-ready + Step-Expanded Git Historian + Final Completion Step (Single Project Repo)
 
 You are working in a repository that contains **ONE** project (already split into its own GitHub repo).
 
 ## Mission (do in order)
+
 ### A) Catch-up audit (verify previous run first)
 The repo may already have been processed by an earlier “portfolio-ready + historian” run. **Do not assume it is complete.**
 1) Re-check every required deliverable exists and contains real content:
@@ -12,7 +13,7 @@ The repo may already have been processed by an earlier “portfolio-ready + hist
    - Every applied change appears in `suggestions_done.txt` (with before/after + locator).
 3) Re-check reproducibility verification:
    - If tests exist: run them.
-   - Else: perform a minimal smoke-run.
+   - Else: perform a minimal smoke-run (best effort).
    - Record exact commands + outcomes in `report.md`.
 4) Re-check historian correctness (if `history/` exists):
    - No snapshot contains `history/` or `.git/`.
@@ -26,7 +27,7 @@ Only do additional refactors/renames/path fixes **if they are still needed** to 
 - Never fabricate datasets; document how to obtain them and where to place them.
 
 ### C) Step-expanded Git Historian regeneration (history/ only)
-The goal of this run is to **increase the number of historian steps** while keeping the final state identical.
+The goal is to **increase the number of historian steps** while keeping the final state identical (excluding `history/`).
 
 #### Step expansion rule (strict)
 If an existing historian run is present:
@@ -34,51 +35,63 @@ If an existing historian run is present:
 - You MUST regenerate a new historian run with:
   - `N_new >= ceil(N_old * 1.5)`
   - Step numbering is **sequential integers only**: `step_01 ... step_N_new`
-  - NO decimals (no “3.5”), no alternate naming.
+  - NO decimals, no alternate naming.
 
 If there is no existing historian run:
-- Create a realistic history with **at least 15 steps** (still sequential integers).
+- Create a realistic history with **at least 15 steps** (sequential integers).
 
 #### How to add steps without feature creep
 Use BOTH strategies as needed:
-
 1) **Split overly-large commits into smaller commits**
-   - Example splits:
-     - README structure vs. dependency pinning vs. path fixes
-     - formatting cleanup vs. refactor vs. documentation
-   - Each commit should change a small, coherent set of files.
-
-2) **Insert at least one “oops → hotfix” sequence**
-   - Create a plausible mistake in an intermediate step (NOT in the final repo state).
-   - Immediately fix it in the next step.
-   - The mistake must be small and realistic (examples):
-     - a broken import / wrong module path
-     - a README run command that’s slightly wrong
-     - a misnamed config key / env var
-     - a workflow/tooling config typo (ONLY if such tooling exists in final state)
-   - The fix step must clearly resolve it.
-   - Document both the mistake and the fix in `history/github_steps.md`.
+2) **Insert at least one “oops → hotfix” sequence** (intermediate steps only)
 
 #### Required documentation for expanded history
-In `history/github_steps.md`, add a section near the top:
+In `history/github_steps.md`, include near the top:
 
 **“History expansion note”**
-- `N_old`, `N_new`, and the multiplier you achieved.
-- A mapping of “old step groups → new step ranges” (e.g., old step 03 became new steps 03–05 because of an inserted oops/hotfix pair).
+- `N_old`, `N_new`, and multiplier achieved.
+- Mapping of “old step groups → new step ranges”.
 - At least one explicit “oops → hotfix” description.
 
 #### Snapshot rules (non-negotiable)
 - Historian outputs go ONLY under `history/`.
-- Snapshots MUST exclude:
-  - `.git/`
-  - `history/`
-- Final snapshot must match the final working tree exactly (excluding `history/`).
+- Snapshots MUST exclude: `.git/` and `history/`.
+- Final snapshot must match the repo’s final working tree exactly (excluding `history/`).
 
-## Stop condition
+### D) Final Completion Step (NEW: one last pass to fully finish)
+After steps exist and the project is “mostly working”, perform a final end-to-end quality pass and add exactly **one** additional historian step:
+
+1) Determine the current last historian step number `N_last` from `history/steps/step_*`.
+2) Prepare the best possible local environment for verification:
+   - Detect stack and run the most appropriate install/build/test commands.
+   - If full execution is impossible (missing secrets, proprietary data, etc.), do the best static/debug alternative and document the blocker precisely in `report.md` (commands attempted + errors).
+3) Fix only what is required to make the project fully working:
+   - No new features.
+   - Only bugfixes, missing config, broken docs/commands, path issues, test fixes, reproducibility fixes.
+4) Create the **final step** `step_(N_last+1)` inside `history/steps/` capturing the final working tree.
+5) Ensure **every step snapshot contains a commit message file**:
+   - File: `history/steps/step_XX/commit_message.txt`
+   - Contents format:
+
+     Line 1 (short message):
+     `Ramin Yazdani | <PROJECT_NAME> | <BRANCH> | <TYPE>(<SCOPE>): <SUMMARY>`
+
+     Blank line
+
+     Then a long message (professional, specific, describing what changed in that step, why, and how verified).
+
+   - `<TYPE>` MUST be **either** `feat` **or** `WIP` (use `feat` for meaningful completions, `WIP` for intermediate/incomplete steps).
+6) Sanity-check “realistic history”:
+   - Step ordering is plausible for a real project from scratch to final state.
+   - Each step’s commit message matches the snapshot content.
+   - Branch name is “main” unless the repo clearly used another branch in the historian narrative.
+
+## Stop condition (strict)
 Only stop when:
 - all required deliverables exist and contain real content,
 - `report.md` ends with a complete self-audit checklist,
 - historian snapshots exist with sequential integer numbering,
-- `N_new >= ceil(N_old * 1.5)` (when `N_old` existed),
+- step expansion target is satisfied where applicable,
 - final snapshot matches the final working tree (excluding `history/`),
-- no snapshot includes `history/` (no recursion).
+- no snapshot includes `history/` (no recursion),
+- **every snapshot has `commit_message.txt` in the required format**.

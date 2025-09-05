@@ -1,6 +1,6 @@
-name: Portfolio-ready + Git Historian (Step-expanded)
-description: Make the repo portfolio-ready (no feature creep) and regenerate Git Historian snapshots with ≥1.5× more steps.
-title: "Portfolio / Git Historian (expanded): <REPO_NAME>"
+name: Portfolio-ready + Git Historian (Step-expanded + Final completion)
+description: Make the repo portfolio-ready (no feature creep), regenerate Git Historian snapshots with ≥1.5× more steps, then add one final step (N+1) after end-to-end verification/fixes.
+title: "Portfolio / Git Historian (finalize): <REPO_NAME>"
 labels: []
 body:
   - type: markdown
@@ -12,12 +12,15 @@ body:
         1) Re-check the previous run (deliverables, ledgers, verification, historian correctness)
         2) Complete any missing portfolio-ready items (no feature creep)
         3) Regenerate `history/` with **sequential integer steps** and **≥1.5× more steps** than the prior run (if it exists)
+        4) Ensure **every snapshot** has `commit_message.txt` (short + long message) tailored to that step
+        5) Do a final end-to-end verification pass, fix only what is required to make the project fully working, then add **one final step (N+1)**
 
         **Hard rules:**
         - No secrets (use env vars + `.env.example`).
         - No fabricated datasets.
         - Historian outputs only under `history/`.
         - Snapshots must exclude both `.git/` and `history/` (no recursion).
+        - Locked inputs remain unchanged (if the repo has locked files).
 
   - type: input
     id: step_multiplier
@@ -39,15 +42,25 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: default_branch
+    attributes:
+      label: Default branch name for commit messages
+      description: "Used in commit_message.txt short message. Defaults to main."
+      value: "main"
+      placeholder: "main"
+    validations:
+      required: true
+
   - type: textarea
     id: notes
     attributes:
-      label: Notes / constraints specific to this repo
+      label: Optional notes
       description: |
-        Optional: mention where you'd like the oops→hotfix inserted (e.g., around path handling, README run commands),
+        Optional: where you'd like the oops→hotfix inserted (e.g., around path handling, README run commands),
         and which big steps you want split into smaller ones.
       placeholder: |
-        Example: Insert an oops→hotfix around step 3 (wrong import path), then split the documentation+refactor step into 3 smaller commits.
+        Example: Insert an oops→hotfix around step 3 (wrong import path), then split documentation+refactor into 3 smaller commits.
     validations:
       required: false
 
@@ -55,7 +68,7 @@ body:
     id: job_prompt
     attributes:
       label: Job Prompt (paste prompt_job.txt here)
-      description: "Paste the full prompt (prompt_job.txt). This defines deliverables, ledgers, verification, and historian rules."
+      description: "Paste the full prompt (prompt_job.txt). This defines deliverables, ledgers, verification, historian rules, and the final completion step."
       placeholder: "Paste the full prompt_job.txt content here."
     validations:
       required: true
@@ -76,4 +89,8 @@ body:
         - label: "Snapshots exclude both history/ and .git/ (no recursion)"
           required: true
         - label: "Step directories are sequential integers: step_01..step_N (no decimals)"
+          required: true
+        - label: "Every snapshot contains history/steps/step_XX/commit_message.txt (short+long), tailored per step"
+          required: true
+        - label: "After final fixes, add exactly one final step (N+1) that matches the final working tree"
           required: true
