@@ -1,0 +1,18 @@
+# Suggestion Ledger - Pre-Change Audit
+# Format: TYPE	FILE	LOCATOR	BEFORE_SNIPPET	PROPOSED_CHANGE	RATIONALE	STATUS
+# Types: TRACE (assignment traces), PATH (absolute/brittle paths), RENAME (file/folder names), STRUCTURE (folder org), DOC (documentation), DEPENDENCY, OTHER
+
+RENAME	Yazdani_7068679_assignment5_1.py	filename	Yazdani_7068679_assignment5_1.py	model_comparison.py	Remove assignment/matriculation number from filename for professional presentation	APPLIED
+TRACE	README.md	line 3	**Project Type:** University Assignment/Task	Remove line	Remove assignment designation	APPLIED
+TRACE	README.md	line 8	This is Assignment 5 for the Structural Bioinformatics course at Saarland University. The assignment focuses on...	Professional reframe: "This project performs protein structure prediction..."	Remove course/assignment context, reframe professionally	APPLIED
+TRACE	README.md	line 19	raya00001_7068679-assignment5/	protein-model-comparison-alphafold/	Update folder structure example to match professional naming	APPLIED
+TRACE	README.md	line 20	Yazdani_7068679_assignment5_1.py   # Main assignment script	model_comparison.py   # Main comparison script	Update filename and remove "assignment" label	APPLIED
+TRACE	README.md	line 47	cd raya00001_7068679-assignment5	cd protein-model-comparison-alphafold	Update directory navigation to professional name	APPLIED
+TRACE	README.md	line 52	python Yazdani_7068679_assignment5_1.py	python model_comparison.py	Update command to use new filename	APPLIED
+TRACE	README.md	line 76	- The assignment compares different protein structure prediction methods	- Compares different protein structure prediction methods	Remove "assignment" reference	APPLIED
+DOC	README.md	entire file	Current structure	Portfolio-grade README with sections: Title+tagline, What it is, Problem & Approach, Tech Stack, Structure, Setup, How to run, Data/inputs, Outputs, Reproducibility, Troubleshooting	Align with project_identity.md and professional standards	APPLIED
+PATH	model_comparison.py (was Yazdani_7068679_assignment5_1.py)	lines 98-101, 120-125, 225-232	os.mkdir("./models"), os.mkdir("./with_hetero"), os.chdir("./with_hetero")	Use pathlib and project-relative paths	Make paths more robust and platform-independent	APPLIED
+DEPENDENCY	requirements.txt	entire file	biopython>=1.79, numpy>=1.21.0	Add modeller, requests if needed; document MODELLER installation	Document all dependencies including MODELLER which requires special installation	APPLIED
+STRUCTURE	root	none	No .gitignore file	Create .gitignore for Python, models, intermediate files	Prevent committing generated files	APPLIED
+OTHER	model_comparison.py	line 114-116	Hardcoded best model filename	Should be programmatic selection or documented	Hardcoded reference to specific model file	NOT_APPLIED (preserves original logic - this is intentional based on DOPE scores from output)
+OTHER	model_comparison.py	lines 126-242	Duplicate code block	Consider refactoring, but preserve for now	Code duplication for hetero/non-hetero runs	NOT_APPLIED (preserves original behavior - demonstrates two different modeling approaches)

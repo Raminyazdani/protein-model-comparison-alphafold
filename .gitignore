@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# MODELLER outputs and working directories
+models/
+with_hetero/
+*.pir
+*.ali
+*.pap
+*.tree
+*.log
+*.ini
+
+# Intermediate files
+2R9R_2.fasta
+2R9R_2|Chains.B*.pdb
+3LUT.pdb
+8VC3.pdb
+res.pap
+res.ali
+fm00495.tree
+1is3A.tree
+2R9R-mult.ali
+2R9R-mult.pap
+
+# Editor and IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
